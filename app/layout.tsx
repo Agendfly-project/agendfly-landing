@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import CookieConsentWrapper from '@/components/cookie-consent-wrapper'
+import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
   title: 'v0 App',
@@ -13,8 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="pt-BR">
+      <body>
+        {children}
+        <CookieConsentWrapper />
+        <Toaster />
+      </body>
     </html>
   )
 }

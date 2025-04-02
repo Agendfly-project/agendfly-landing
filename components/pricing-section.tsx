@@ -58,7 +58,7 @@ const plans = [
 
 export default function PricingSection() {
   return (
-    <section className="py-20 bg-white" id="pricing">
+    <section className="py-20 bg-white overflow-hidden" id="pricing">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-agendafly-main md:text-4xl">Planos e Preços</h2>
@@ -75,19 +75,21 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={plan.highlighted ? "md:-mt-4 md:mb-4" : ""}
+              className={`flex ${plan.highlighted ? "md:-mt-4 md:mb-4" : ""}`}
             >
               <Card
-                className={`h-full border-agendafly-100 ${plan.highlighted ? "border-agendafly-main shadow-lg" : "hover:shadow-md"} transition-shadow`}
+                className={`h-full w-full flex flex-col border-agendafly-100 ${
+                  plan.highlighted ? "border-agendafly-main shadow-lg" : "hover:shadow-md"
+                } transition-shadow`}
               >
                 {plan.highlighted && (
                   <div className="bg-agendafly-main text-white text-center py-1 text-sm font-medium">Mais Popular</div>
                 )}
-                <CardHeader>
+                <CardHeader className="flex-shrink-0">
                   <CardTitle className="text-xl">{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 flex-grow">
                   <div className="flex items-baseline">
                     <span className="text-3xl font-bold text-gray-900">{plan.price}</span>
                     <span className="text-gray-500 ml-1">{plan.period}</span>
@@ -101,9 +103,13 @@ export default function PricingSection() {
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="mt-auto pt-4">
                   <Button
-                    className={`w-full ${plan.highlighted ? "bg-agendafly-main hover:bg-agendafly-dark" : "bg-agendafly-100 text-agendafly-main hover:bg-agendafly-200"}`}
+                    className={`w-full ${
+                      plan.highlighted
+                        ? "bg-agendafly-main hover:bg-agendafly-dark"
+                        : "bg-agendafly-100 text-agendafly-main hover:bg-agendafly-200"
+                    }`}
                     asChild
                   >
                     <a href={plan.link} target="_blank" rel="noopener noreferrer">
@@ -119,4 +125,5 @@ export default function PricingSection() {
     </section>
   )
 }
+
 

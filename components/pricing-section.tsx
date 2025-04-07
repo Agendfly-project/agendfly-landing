@@ -19,7 +19,7 @@ const plans = [
     ],
     highlighted: false,
     cta: "Começar grátis",
-    link: "https://wa.me/5551997976375?text=Olá!%20Gostaria%20de%20conhecer%20o%20plano%20Gratuito%20do%20AgendFly.",
+    link: "https://app.agendfly.com.br/login",
   },
   {
     name: "Básico",
